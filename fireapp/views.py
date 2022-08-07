@@ -5,15 +5,17 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 import pyrebase
 
+
+# firebase config
 app_config = {
-    "apiKey": "AIzaSyAgPotrNQzZcM22I6a5Ic_v-fp1DDSUwRA",
+    "apiKey": "***************************************",
     "authDomain": "iqubedj.firebaseapp.com",
     "projectId": "iqubedj",
-    "storageBucket": "iqubedj.appspot.com",
-    "messagingSenderId": "635827728558",
-    "appId": "1:635827728558:web:c2af1752d667eb61a4fd3f",
-    "measurementId": "G-HQ300JWPHP",
-    "databaseURL" : "https://iqubedj-default-rtdb.firebaseio.com/",
+    "storageBucket": '***********************',
+    "messagingSenderId": '***********************',
+    "appId": '***********************',
+    "measurementId": '***********************',
+    "databaseURL" : '***********************',
 }
 
 firebase = pyrebase.initialize_app(app_config)
@@ -39,8 +41,10 @@ def post_form(request):
         # id creation
         time_zone = pytz.timezone("Asia/Kolkata")
         time_now = datetime.now(timezone.utc).astimezone(time_zone)
+        # milli for generating unique id for each entry
         milli = int(time.mktime(time_now.timetuple())) 
 
+        # password verification
         if password1 == password2:
             data = {
                 "fullname" : fullname,
