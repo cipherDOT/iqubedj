@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>iQube - Kavin Bharathi</title>
+</head>
+<body>
+    <form method="POST" class="container" action="{% url 'create' %}">
+
+        {% csrf_token %}
+        <div class="field">
+            <label for="">Fullname:</label>
+            <input type="text" name="fullname" required="required">
+        </div>
+        <div class="field">
+            <label for="">Username:</label> 
+            <input type="text" name="username" required="required">
+        </div>
+        <div class="field">
+            <label for="">Email:</label>
+            <input type="text" name="email" required="required">
+        </div>
+        <div class="field">
+            <label for="">Password:</label>
+            <input type="password" name="password1" required="required">
+        </div>
+        <div class="field">
+            <label for="">Confirm password:</label>
+            <input type="password" name="password2" required="required">
+        </div>
+        <div class="field">
+            <label for="">Mobile:</label>
+            <input type="text" name="mobile" required="required">
+        </div>
+        <div class="field">
+            <label for="">Country:</label>
+            <input type="text" name="country" required="required">
+        </div>
+        <input type="submit" class="btn">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red;list-style: none;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </form>
+</body>
+</html>
