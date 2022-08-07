@@ -58,3 +58,13 @@ body {
     padding: 5px;
     border-radius: 50vh;
 }
+
+.error {
+    color: red;
+    list-style: none;
+}
+
+.success {
+    color: green;
+    list-style: none;
+}

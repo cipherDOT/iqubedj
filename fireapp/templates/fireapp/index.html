@@ -43,11 +43,11 @@
         </div>
         <input type="submit" class="btn">
         {% if messages %}
-        <ul class="messages">
+        <div class="messages">
             {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red;list-style: none;">{{ message }}</li>
+            <p class="message {{ message.tags }}">{{ message }}</p>
             {% endfor %}
-        </ul>
+        </div>
         {% endif %}
     </form>
 </body>

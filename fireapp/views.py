@@ -53,6 +53,8 @@ def post_form(request):
             }
 
             database.child('data').child(username).child('user_data').set(data)
+            msg = "Successfully added to database"
+            messages.success(request, msg)
         else:
             msg = "Passwords don't match"
             messages.error(request, msg)
